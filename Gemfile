@@ -35,3 +35,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'materialize-sass'
+gem 'material_icons'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'cocoon', '~> 1.2', '>= 1.2.11'
+gem 'materialize-form'
+gem 'devise', '~> 4.4', '>= 4.4.3'

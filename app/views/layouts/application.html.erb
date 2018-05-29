@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/nav' %>
+    <br>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <div class="alert">
+          <%= content_tag :div, msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    
   </body>
 </html>

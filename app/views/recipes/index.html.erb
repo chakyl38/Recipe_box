@@ -1,4 +1,26 @@
-<% @recipe.each do |recipe| %>
-	<h2><%= link_to recipe.title, recipe %></h2>
-
+<% @recipe.each_slice(3) do |recipes| %>
+	<div class="row">
+		<% recipes.each do |recipe| %>
+			<div class="col s4">
+				<div class="card hoverable">
+					<div class="card-image ">
+						<%= link_to recipe do %>
+							<%= image_tag recipe.image.url(:medium, class: "recipe_image") %>
+						<% end %>
+						<span class="card-title">Card Title</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chat</i></a>
+					</div>
+					<div class="card-content">
+						<h5 class=" red-text text-red"><%= link_to recipe.title, recipe %></h5>	
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
 <% end %>
+
+
+
+
+
+	

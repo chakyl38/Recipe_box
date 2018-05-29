@@ -23,8 +23,21 @@ class RecipesController < ApplicationController
 		end
 	end
 
-	def destroy
+	def edit
+		
+	end
 
+	def update
+		if @recipe.update(recipe_params)
+			redirect_to @recipe
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@recipe.destroy
+		redirect_to root_path, notice: "Successfully deleted recipe"
 	end
 
 	private 
@@ -34,6 +47,31 @@ class RecipesController < ApplicationController
 		end
 
 		def recipe_params
-			params.require(:recipe).permit(:title, :description)
+			params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
 		end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

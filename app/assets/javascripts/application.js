@@ -12,5 +12,12 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
 //= require turbolinks
+//= require materialize-sprockets
+//= require cocoon
+//= require materialize-form
 //= require_tree .
+$(document).on('turbolinks:load', function() {
+  window.materializeForm.init()
+})

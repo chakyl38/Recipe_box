@@ -10,8 +10,52 @@
 		</div>
 	<% end %>
 	<div class="panel-body">
-		<%= f.input :title, input_html: {class: 'form-control'} %>
-		<%= f.input :description, input_html: {class: 'form-control'} %>
+		<div class="row">
+			<%= f.input :title, wrapper_html: { class: "m6 s12" } %>
+			<%= f.input :description, wrapper_html: { class: "materialize-textarea  s12" } %>
+		</div>
+		  <div class="#">
+	         <div class="file-field input-field gallery_picture">
+	        	<div class="btn">
+		          <span>Upload file</span>
+		          <%= f.input_field :image %>
+	          	</div>
+	        	<input class="file-path validate" type="text"/>
+	        </div>
+	    </div>
+		
+
+		<div class="row">
+			<div class="col s6">
+				<h3>Ingredients</h3>
+				<div id="ingredients">
+					<%= f.simple_fields_for :ingredients do |ingredient| %>
+						<%= render 'ingredient_fields', f: ingredient %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association 'Add Ingredient', f, :ingredients, class: "btn add_button" %>
+					</div>
+				</div>
+			</div>
+			<div class="col s6">
+				<h3>Directions</h3>
+				<div id="directions">
+					<%= f.simple_fields_for :directions do |direction| %>
+						<%= render 'direction_fields', f: direction %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association 'Add Step', f, :directions, class: "btn add_button" %>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<%= f.button :submit, class: 'btn waves-effect waves-light' %>
+	<%= link_to "back", root_path, class: "waves-effect waves-light btn" %>
 <% end %>
+
+
+
+
+
+
